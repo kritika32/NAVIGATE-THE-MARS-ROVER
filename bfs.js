@@ -1,5 +1,5 @@
-let myModule = require("./main");
-const { matrix } = require("./main");
+var myModule = require("./main");
+const { matrix, printMatrix } = require("./main");
 
 const dirs = [
   [-1, 0],
@@ -43,27 +43,22 @@ function search(matrix, N, src) {
   return [false, ""];
 }
 
-// Checking matrix and
-// console.log(myModule.matrix);
-// console.log(myModule.N);
-
-//src and dst
-// console.log(myModule.src);
-// console.log(myModule.dst);
-
-// Evaluation Time
-let res = search(myModule.matrix, myModule.N, myModule.src);
-
-let arr = res[1].split(",");
-for (let i = 1; i < arr.length - 2; i++) {
-  let temp = arr[i].split(":");
-  matrix[parseInt(temp[0])][parseInt(temp[1])] = 9;
+function decodeFromRes() {
+  let arr = res[1].split(",");
+  for (let i = 1; i < arr.length - 2; i++) {
+    let temp = arr[i].split(":");
+    matrix[parseInt(temp[0])][parseInt(temp[1])] = 9;
+  }
 }
 
-for (let i = 0; i < matrix.length; i++) {
-  let l = "";
-  for (let j = 0; j < matrix[i].length; j++) {
-    l += matrix[i][j] + " ";
-  }
-  console.log(l);
+// Evaluation Time
+var res = search(myModule.matrix, myModule.N, myModule.src);
+
+//Decoding answer
+if (res[0] === true) {
+  decodeFromRes();
+  //print Matrix in form of Strings
+  myModule.printMatrix();
+} else {
+  console.log("No Path Exists!!!");
 }
