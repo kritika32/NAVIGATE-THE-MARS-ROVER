@@ -23,7 +23,7 @@ An interesting game using Artificial Intelligence
  
 ## Images
 
-1. Terms   
+1. Algorithm    
   - (0): Empty. 
   - (1): Src. 
   - (2): Dst      
