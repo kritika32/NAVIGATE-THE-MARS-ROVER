@@ -39,4 +39,14 @@ An interesting game using Artificial Intelligence
   <img src= "https://user-images.githubusercontent.com/59146229/86313742-7b8eac80-bc43-11ea-8de1-75c091bfecc9.png">
 </p>
 
+2. Grid
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/86459055-da3b4f80-bd43-11ea-9985-d3efd97d0eed.png">
+</p>
+
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/86460295-c1cc3480-bd45-11ea-86eb-d0f92688ff63.png">
+</p>
+ 
  
