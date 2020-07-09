@@ -54,7 +54,7 @@ var N = matrix.length;
 var src = [11, 6];
 var dst = [11, 14];
 
-fillWalls(300); // for now walls hardcoded
+fillWalls(150); // for now walls hardcoded
 printMatrix();
 // Empty Matrix
 // console.log(matrix);

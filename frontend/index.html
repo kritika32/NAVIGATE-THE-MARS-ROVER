@@ -1,19 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Mars Rover</title>
-
-</head>
+  </head>
   <body>
-  <svg id="container" width="1080" height="1980"> </svg>
-  <script src="script.js"></script>
-  <div class="panel right-panel">
-    <div style="padding: 4px;"></div>
-  </div>
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <a href="#">Start</a>
+    </div>
+    <button class="openbtn" onclick="openNav()">
+      &#9776; Toggle Sidepanel
+    </button>
+    <div id="grid">
+      <svg id="container" width="1920" height="1080"></svg>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
