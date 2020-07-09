@@ -66,3 +66,15 @@ __Info about Grid__
   <p align="center">
   <img src= "https://user-images.githubusercontent.com/59146229/87039227-7d8cd880-c20c-11ea-83db-92a6f5843866.png">
 </p>
+
+4. Front-End updated
+ <p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87072180-002b8d00-c239-11ea-8e18-c11ae93d02b7.png">
+</p>
+
+__Marked with Panel__
+ <p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87073527-2ce0a400-c23b-11ea-9354-35d284370c0f.png">
+</p>
+
+
