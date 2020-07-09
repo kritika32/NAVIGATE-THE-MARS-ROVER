@@ -61,3 +61,8 @@ __Info about Grid__
  
 
  __Hello my name is Oscar and I will be your mate throughout the Game. I am already excited. !!! (Wooof Woooof Woooooooooooof)__
+ 
+ __Panel__
+  <p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87039227-7d8cd880-c20c-11ea-83db-92a6f5843866.png">
+</p>
