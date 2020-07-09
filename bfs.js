@@ -11,8 +11,10 @@ const dirs = [
   [0, -1],
   [-1, -1],
 ];
+
 function search(matrix, N, src) {
   let queue = [];
+           //     x       y           path: "11:4"
   queue.push([src[0], src[1], `${src[0]}:${src[1]},`]);
   let visited = new Set();
 
@@ -25,6 +27,7 @@ function search(matrix, N, src) {
     if (x < 0 || x >= N || y < 0 || y >= N) continue;
 
     if (visited.has(`${x}:${y}`) || matrix[x][y] === 3) continue;
+
     if (matrix[x][y] === 2) {
       console.log(path);
       console.log(`Here it is: ${x}:${y}`);
@@ -33,15 +36,19 @@ function search(matrix, N, src) {
 
     visited.add(`${x}:${y}`);
 
+    // [[-1, 0], [1, 2]]
     for (let i = 0; i < dirs.length; i++) {
-      let newX = x + parseInt(dirs[i][0]);
-      let newY = y + parseInt(dirs[i][1]);
+      let newX = x + parseInt(dirs[i][0]); // -1
+      let newY = y + parseInt(dirs[i][1]); // 0
       queue.push([newX, newY, path + `${newX}:${newY},`]);
     }
   }
 
   return [false, ""];
 }
+
+// path -> 11:4,10:4,9:5,10:6,...........6:4,
+// arr -> [11:4, 10:4, 9:5, ........ , 6:4, ]
 
 function decodeFromRes() {
   let arr = res[1].split(",");
