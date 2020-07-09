@@ -50,11 +50,14 @@ __Info about Grid__
   <img src= "https://user-images.githubusercontent.com/59146229/86460295-c1cc3480-bd45-11ea-86eb-d0f92688ff63.png">
 </p>
 
-3. Plotting of Points
+3. Plotting of Points (__Meet our hero(AI based Game) Oscar!__)
 - Greeen: source
 - Red: Destination
 - Gray: walls
  <p align="center">
   <img src= "https://user-images.githubusercontent.com/59146229/87034821-13713500-c206-11ea-9b3a-87a5ce6e50f9.png">
 </p>
+      
  
+
+ __Hello my name is Oscar and I will be your mate throughout the Game. I am already excited. !!! (Wooof Woooof Woooooooooooof)__
