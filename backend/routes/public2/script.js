@@ -1,11 +1,11 @@
 //Initialize variables
 var cnt = 0,
-  c = "",
-  y = 0,
   isSrc = true,
   isDst = false,
   src_crd = "",
-  dst_crd = "";
+  dst_crd = "",
+  rows = 30,
+  cols = 48;
 
 // code to change color while clicking of code
 function split(str, idx) {
@@ -14,6 +14,13 @@ function split(str, idx) {
 
 function reply_click(obj) {
   let elem = document.getElementById(obj.id);
+  let x = parseInt(split(obj.id, 0));
+  let y = parseInt(split(obj.id, 1));
+
+  if (x === 0 || y === 0 || x === rows - 1 || y === cols - 1) {
+    return;
+  }
+
   if (cnt == 0) {
     if (obj.id === dst_crd) {
       return;
@@ -26,16 +33,16 @@ function reply_click(obj) {
     if (!isDst) cnt++;
     else cnt = 10;
   } else if (cnt == 1) {
-    if (obj.id === src_crd) {
+    if (obj.id === src_crd || elem.style.fill === "rgb(54, 69, 79)") {
       return;
     }
-    elem.style.fill = "rgb(255,0,0)";
+    elem.style.fill = "rgb(255, 0, 0)";
     cnt++;
     dst_crd = obj.id;
     isDst = true;
   } else {
     if (elem.style.fill.length === 0) {
-      elem.style.fill = "rgb(128, 128, 128)";
+      elem.style.fill = "rgb(43, 45, 47)";
     } else {
       if (elem.style.fill === "rgb(0, 255, 0)") {
         cnt = 0;
@@ -53,15 +60,15 @@ function reply_click(obj) {
   }
 }
 
-function plot(rows = 36, cols = 36) {
+function plot(rows = 30, cols = 50) {
   let c = "",
     y = 0;
   for (let i = 0; i < rows; i++) {
     var x = 0;
     for (let j = 0; j < cols; j++) {
-      let colr = "rgb(255, 255, 255)";
+      let colr = "rgb(134, 136, 138)";
       if (j == 0 || i == 0 || j == cols - 1 || i == rows - 1) {
-        colr = "rgb(43, 45, 47) ";
+        colr = "rgb(54, 69, 79)";
       }
       c += `<rect id=${
         i + ":" + j
@@ -75,4 +82,4 @@ function plot(rows = 36, cols = 36) {
 }
 
 //Driver
-plot();
+plot(rows, cols);

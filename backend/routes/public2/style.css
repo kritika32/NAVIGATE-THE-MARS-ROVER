@@ -1,7 +1,14 @@
 body {
-  background-image: url("./images/back.jpg");
+  margin: 0 auto;
+  background-image: url("./nav.jpeg");
   background-position: center center;
   background-image: no-repeat;
+}
+
+/* Logo */
+img {
+  -webkit-transition: background-image 0.2s ease-in-out;
+  transition: background-image 0.2s ease-in-out;
 }
 
 /*Font Size*/
