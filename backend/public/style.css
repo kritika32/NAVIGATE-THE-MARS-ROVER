@@ -1,7 +1,7 @@
 body {
-  background-image: url("./images/back3.jpg");
+  background-image: url("./images/back.jpg");
   background-position: center center;
-  background-image: repeat;
+  background-image: no-repeat;
 }
 
 /*Font Size*/

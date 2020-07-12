@@ -9,40 +9,56 @@
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background-image: url("./back.jpg");
+        background-position: center center;
+        background-image: no-repeat;
+      }
+    </style>
     <title>Mars Rover</title>
   </head>
   <body>
     <!--  Two Cols Division -->
     <div class="container-fluid">
       <div class="row">
-        <!-- Left Panel -->
-        <div class="col-4 stretch border border-dark">
+        <div class="col" style="height: 550px;">
           <ul class="nav list-group mt-4 p-4 text-center">
-            <li class="list-group-item mb-4 bg-dark">
-              <a class="nav-link active text-white" href="#">Algorithm</a>
-            </li>
-            <li class="list-group-item mb-4 bg-dark">
-              <a class="nav-link text-white" href="#">Directions</a>
-            </li>
-            <li class="list-group-item mb-4 bg-dark">
-              <a class="nav-link text-white" href="#">Walls</a>
-            </li>
-            <li class="list-group-item mb-4 bg-dark">
-              <a class="nav-link active text-white" href="#">Path</a>
-            </li>
-            <li class="list-group-item mb-4 bg-dark">
-              <a class="nav-link active text-white" href="#">Start</a>
+            <li
+              class="list-group-item mb-4 bg-dark text-white"
+              style="font-size: larger;"
+            >
+              Welcome to the Game Navigate The Mars Rover!!!
             </li>
           </ul>
         </div>
-        <!-- <div class="col"></div> -->
+      </div>
 
-        <!-- Grid Space -->
-        <div class="col-8">
-          <div class="row">
-            <svg id="container" width="1920" height="1080"></svg>
-            <script src="script.js"></script>
+      <div class="row">
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="col">
+            <ul class="nav list-group mt-4 p-4 text-center">
+              <li class="list-group-item mb-4 bg-dark">
+                <form
+                  class="nav-link active text-white"
+                  action="/grid"
+                  method="POST"
+                >
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" />
+                  </div>
+                  <input
+                    type="Submit"
+                    value="Start"
+                    class="btn btn-danger btn-block"
+                  />
+                </form>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
