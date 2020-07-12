@@ -81,5 +81,35 @@ function plot(rows = 30, cols = 50) {
     document.getElementById("container").innerHTML = c;
 }
 
+//Clear Path
+/* Clear the alloted path */
+function clearPath(obj) {
+  console.log(obj.id);
+  let val = 0;
+  if (obj.id === "wall") {
+    val = 3;
+  } else {
+    val = 9;
+  }
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (matrix[i][j] === val) {
+        matrix[i][j] = 0;
+        document.getElementById(`${i}:${j}`).style.fill = "rgb(255, 255, 255)";
+      }
+    }
+  }
+}
+
+/* Set the width of the sidebar to 250px (show it) */
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "300px";
+}
+
+/* Set the width of the sidebar to 0 (hide it) */
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}
+
 //Driver
 plot(rows, cols);

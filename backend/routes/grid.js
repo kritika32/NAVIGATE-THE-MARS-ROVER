@@ -1,8 +1,7 @@
 const express = require("express");
-const path = require("path");
 
 const route = express.Router();
-route.use("/", (req, res) => {
+route.post("/", (req, res) => {
   res.sendFile("./public2/grid.html", { root: __dirname });
 });
 
