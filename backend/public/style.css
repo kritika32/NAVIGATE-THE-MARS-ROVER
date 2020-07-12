@@ -1,0 +1,21 @@
+body {
+  background-image: url("./images/back.jpg");
+  background-position: center center;
+  background-image: no-repeat;
+}
+
+/*Font Size*/
+font_size {
+  font-size: 100%;
+}
+stretch {
+  height: 100px;
+}
+
+/*Button*/
+.btn {
+  transition: 0.1s;
+}
+.btn:hover {
+  transition: 0.3s;
+}
