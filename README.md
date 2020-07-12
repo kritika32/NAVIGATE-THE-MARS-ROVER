@@ -77,4 +77,25 @@ __Marked with Panel__
   <img src= "https://user-images.githubusercontent.com/59146229/87073527-2ce0a400-c23b-11ea-9354-35d284370c0f.png">
 </p>
 
+# 5. Front-end Version 2.0 [THE DARK VERSION]
+
+__Welcome Page__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87253221-0c148a80-c497-11ea-9906-4cd3d3ff78cd.png">
+</p>
+
+__Upper Nav-Bar__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87253295-c3110600-c497-11ea-94f9-00e3a3450124.png">
+</p>
+
+__Grid__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87253322-f2c00e00-c497-11ea-999f-d939ba7cc093.png">
+</p>
+
+__Src, Dst, Walls, Border [Meet Oscar 2.0]__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87253443-e1c3cc80-c498-11ea-8b5e-3b3a649b030d.png">
+</p>
 
