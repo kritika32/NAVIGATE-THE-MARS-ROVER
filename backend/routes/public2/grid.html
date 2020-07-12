@@ -15,11 +15,58 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-10 text-center">
-          <h1 class="text-white mt-4">Navigate The Mars Rover</h1>
+        <div class="col">
+          <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+              >&times;</a
+            >
+            <a class="list-group-item bg-secondary mb-4" href="#"
+              >Choose Algorithm</a
+            >
+            <a class="list-group-item bg-secondary mb-4" href="#"
+              >is Bidirectional?</a
+            >
+            <a
+              class="list-group-item bg-secondary mb-4"
+              id="wall"
+              onclick="clearPath(this)"
+              href="#"
+              >Clear Walls</a
+            >
+            <a
+              class="list-group-item bg-secondary mb-4"
+              id="path"
+              onclick="clearPath(this)"
+              href="#"
+              >Clear Path</a
+            >
+            <a
+              class="list-group-item bg-secondary mb-4"
+              onclick="bfs()"
+              href="#"
+              >Start</a
+            >
+          </div>
+          <button class="openbtn" onclick="openNav()">
+            INFO &#9776;
+          </button>
         </div>
-        <div class="col-2 logo">
-          <img src="./rover.png" />
+        <div class="col col-lg-8 text-center">
+          <div
+            class="row"
+            style="height: 200px; padding-top: 5.5em; padding-left: 12em;"
+          >
+            <h1 class="text-white mt-4 mx-auto">
+              Navigate The Mars Rover
+            </h1>
+          </div>
+          <div class="row"></div>
+          <div class="row">
+            <div id="greet" class="text-white mt-4"></div>
+          </div>
+        </div>
+        <div class="col-5 col-lg-2 logo">
+          <img class="d-none d-md-block" alt="Rover" src="./rover.png" />
         </div>
       </div>
       <div class="row">
