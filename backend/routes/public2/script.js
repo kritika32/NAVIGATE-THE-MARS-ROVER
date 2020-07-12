@@ -70,7 +70,8 @@ function plot(rows = 36, cols = 36) {
     }
     y += 30;
   }
-  document.getElementById("container").innerHTML = c;
+  if (document.getElementById("container"))
+    document.getElementById("container").innerHTML = c;
 }
 
 //Driver
