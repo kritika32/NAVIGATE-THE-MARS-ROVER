@@ -10,10 +10,12 @@ function initArray(matrix, rows, cols) {
   }
 }
 
-var row = 30,
-  col = 48;
+var rows = 30,
+  cols = 48;
 var matrix = new Array(rows);
 for (let i = 0; i < rows; i++) {
   matrix[i] = new Array(cols);
 }
 initArray(matrix, rows, cols);
+
+export default matrix;
