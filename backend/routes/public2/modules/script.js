@@ -48,6 +48,8 @@ function reply_click(obj) {
         cnt = 1;
         isDst = false;
         dst_crd = "";
+      } else if (elem.style.fill === "rgb(149, 202, 255)") {
+        return;
       }
       matrix[split(obj.id, 0)][split(obj.id, 1)] = 0;
       elem.style.fill = "";
@@ -57,7 +59,6 @@ function reply_click(obj) {
 //Clear Path
 /* Clear the alloted path */
 function clearPath(obj) {
-  console.log(obj.id);
   let val = 0;
   if (obj.id === "wall") {
     val = 3;
@@ -66,6 +67,11 @@ function clearPath(obj) {
   }
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
+      if (val === 9 && matrix[i][j] === 7) {
+        matrix[i][j] = 0;
+        document.getElementById(`${i}:${j}`).style.fill = "rgb(134, 136, 138)";
+        continue;
+      }
       if (matrix[i][j] === val) {
         matrix[i][j] = 0;
         document.getElementById(`${i}:${j}`).style.fill = "rgb(134, 136, 138)";
@@ -83,5 +89,5 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
 }
-
-export { reply_click, clearPath, openNav, closeNav };
+console.log("Script.js");
+export { split, reply_click, clearPath, openNav, closeNav, src_crd, dst_crd };
