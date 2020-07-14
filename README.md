@@ -99,8 +99,14 @@ __Src, Dst, Walls, Border [Meet Oscar 2.0]__
   <img src= "https://user-images.githubusercontent.com/59146229/87253443-e1c3cc80-c498-11ea-8b5e-3b3a649b030d.png">
 </p>
 
-__BFS Implementation working__
+__BFS Implementation working with digonal finding__
 <p align="center">
   <img src= "https://user-images.githubusercontent.com/59146229/87339577-71827d00-c564-11ea-9d79-f36009619b46.png">
+</p>
+
+
+__BFS Implementation working with No-digonal finding__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87424520-b4426480-c5f9-11ea-9c79-6f84cce158bf.png">
 </p>
 
