@@ -18,6 +18,5 @@ function createMatrix() {
   initArray(matrix, rows, cols);
   return matrix;
 }
-console.log("CreateMatrix.js");
 var matrix = createMatrix();
 export default matrix;

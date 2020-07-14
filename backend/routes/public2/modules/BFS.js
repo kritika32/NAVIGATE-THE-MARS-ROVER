@@ -1,34 +1,21 @@
 import matrix from "./createMatrix.js";
-import { dst_crd, src_crd } from "./script.js";
+import { dst_crd, src_crd, fdirs } from "./script.js";
 /* Start the algorithm */
-console.log(matrix);
-const dirs = [
-  [-1, 0],
-  [0, 1],
-  [1, 0],
-  [0, -1],
-  [-1, 1],
-  [1, 1],
-  [1, -1],
-  [-1, -1],
-];
 
 var printPath = function decodeFromRes(res) {
   let arr = res.split(",");
-  console.log(arr);
   for (let i = 1; i < arr.length - 1; i++) {
     let temp = arr[i].split(":");
     let nx = parseInt(temp[0]);
     let ny = parseInt(temp[1]);
     matrix[nx][ny] = 9;
     console.log(document.getElementById(`${nx}:${ny}`).style.fill);
-    document.getElementById(`${nx}:${ny}`).style.fill = "rgb(0,0,255)";
+    document.getElementById(`${nx}:${ny}`).style.fill = "rgb(0, 68, 137)";
   }
 };
 
 function search(matrix) {
-  console.log("Here: ", src_crd, dst_crd);
-
+  var dirs = fdirs;
   let queue = [];
   let src_x = split(src_crd, 0),
     src_y = split(src_crd, 1);
@@ -52,7 +39,7 @@ function search(matrix) {
       let newX = x + parseInt(dirs[i][0]); // -1
       let newY = y + parseInt(dirs[i][1]); // 0
 
-      if (newX < 0 || newX > rows - 3 || newY < 0 || newY > cols - 3) {
+      if (newX <= 0 || newX > rows - 3 || newY <= 0 || newY > cols - 3) {
         continue;
       }
       if (matrix[newX][newY] != 1 && matrix[newX][newY] != 2) {
@@ -63,7 +50,6 @@ function search(matrix) {
           "rgb(149, 202, 255)";
         matrix[newX][newY] = 7;
       } else if (matrix[newX][newY] === 2) {
-        console.log(`Here it is: ${newX}:${newY}`);
         console.log(path);
         printPath(path);
         return;
@@ -81,6 +67,4 @@ function bfs() {
   search(matrix);
 }
 
-console.log(src_crd, dst_crd);
-console.log("BFS.js");
 export { bfs, matrix };

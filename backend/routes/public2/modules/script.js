@@ -7,14 +7,60 @@ var cnt = 0,
   rows = 30,
   cols = 48;
 
+export var fdirs = [
+  [-1, 0],
+  [1, 0],
+  [0, 1],
+  [0, -1],
+];
+
+var toggleDirs = false;
+var dirs = [
+  [-1, 0],
+  [1, 0],
+  [0, 1],
+  [0, -1],
+  // [-1, 1],
+  // [1, 1],
+  // [1, -1],
+  // [-1, -1],
+];
+
+const dia = [
+  [-1, 1],
+  [-1, -1],
+  [1, -1],
+  [1, 1],
+];
+
+//To initiate the diagonal moves
+function isDiagonal() {
+  fdirs = dirs;
+  toggleDirs = !toggleDirs;
+  if (toggleDirs) fdirs = fdirs.concat(dia);
+}
+
 // code to change color while clicking of code
 function split(str, idx) {
   return str.split(":")[idx];
 }
 
 function reply_click(obj) {
-  console.log(obj.id);
   let elem = document.getElementById(obj.id);
+
+  let x = split(obj.id, 0);
+  let y = split(obj.id, 1);
+
+  if (x == 0 || x == rows - 1 || y == 0 || y == cols - 1) {
+    return;
+  }
+
+  if (
+    elem.style.fill === "rgb(0, 68, 137)" ||
+    elem.style.fill === "rgb(149, 202, 255)"
+  ) {
+    return;
+  }
   if (cnt == 0) {
     if (obj.id === dst_crd) {
       return;
@@ -90,5 +136,13 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
 }
-console.log("Script.js");
-export { split, reply_click, clearPath, openNav, closeNav, src_crd, dst_crd };
+export {
+  split,
+  reply_click,
+  clearPath,
+  openNav,
+  closeNav,
+  isDiagonal,
+  src_crd,
+  dst_crd,
+};
