@@ -4,18 +4,19 @@ import { dst_crd, src_crd } from "./script.js";
 console.log(matrix);
 const dirs = [
   [-1, 0],
-  [-1, 1],
   [0, 1],
-  [1, 1],
   [1, 0],
-  [1, -1],
   [0, -1],
+  [-1, 1],
+  [1, 1],
+  [1, -1],
   [-1, -1],
 ];
 
 var printPath = function decodeFromRes(res) {
   let arr = res.split(",");
-  for (let i = 1; i < arr.length - 2; i++) {
+  console.log(arr);
+  for (let i = 1; i < arr.length - 1; i++) {
     let temp = arr[i].split(":");
     let nx = parseInt(temp[0]);
     let ny = parseInt(temp[1]);
@@ -41,18 +42,8 @@ function search(matrix) {
     let y = parseInt(rp[1]);
     let path = rp[2];
 
-    if (x < 0 || x >= rows - 1 || y < 0 || y >= cols - 1) continue;
-    if (visited.has(`${x}:${y}`) || matrix[x][y] === 3) continue;
-    if (matrix[x][y] === 2) {
-      console.log(`Here it is: ${x}:${y}`);
-      console.log(path);
-      printPath(path);
-      return;
-    }
-    if (src_x != x && src_y != y) {
-      document.getElementById(`${x}:${y}`).style.fill = "rgb(149, 202, 255)";
-      matrix[x][y] = 7;
-    }
+    // if (x < 0 || x >= rows - 3 || y < 0 || y >= cols - 3) continue;
+    if (visited.has(`${x}:${y}`)) continue;
 
     visited.add(`${x}:${y}`);
 
@@ -60,7 +51,25 @@ function search(matrix) {
     for (let i = 0; i < dirs.length; i++) {
       let newX = x + parseInt(dirs[i][0]); // -1
       let newY = y + parseInt(dirs[i][1]); // 0
-      console.log(newX, newY);
+
+      if (newX < 0 || newX > rows - 3 || newY < 0 || newY > cols - 3) {
+        continue;
+      }
+      if (matrix[newX][newY] != 1 && matrix[newX][newY] != 2) {
+        if (matrix[newX][newY] === 3) {
+          continue;
+        }
+        document.getElementById(`${newX}:${newY}`).style.fill =
+          "rgb(149, 202, 255)";
+        matrix[newX][newY] = 7;
+      } else if (matrix[newX][newY] === 2) {
+        console.log(`Here it is: ${newX}:${newY}`);
+        console.log(path);
+        printPath(path);
+        return;
+      } else {
+        continue;
+      }
       queue.push([newX, newY, path + `${newX}:${newY},`]);
     }
   }
