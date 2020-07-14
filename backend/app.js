@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 // Routing to grid/
 app.use("/grid", require("./routes/grid"));
 
-app.listen(5000, () => {
-  console.log("Server started at http://localhost:5000");
+var PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server started at http://localhost:${PORT}`);
 });
