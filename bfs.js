@@ -3,18 +3,18 @@ const { matrix, printMatrix } = require("./main");
 
 const dirs = [
   [-1, 0],
-  [-1, 1],
   [0, 1],
-  [1, 1],
   [1, 0],
-  [1, -1],
   [0, -1],
+  [-1, 1],
+  [1, 1],
+  [1, -1],
   [-1, -1],
 ];
 
 function search(matrix, N, src) {
   let queue = [];
-           //     x       y           path: "11:4"
+  //     x       y           path: "11:4"
   queue.push([src[0], src[1], `${src[0]}:${src[1]},`]);
   let visited = new Set();
 

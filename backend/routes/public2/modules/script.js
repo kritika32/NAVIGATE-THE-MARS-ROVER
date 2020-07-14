@@ -13,12 +13,13 @@ function split(str, idx) {
 }
 
 function reply_click(obj) {
+  console.log(obj.id);
   let elem = document.getElementById(obj.id);
   if (cnt == 0) {
     if (obj.id === dst_crd) {
       return;
     }
-    console.log(obj.id);
+
     elem.style.fill = "rgb(0,255,0)";
     isSrc = true;
     src_crd = obj.id;
@@ -69,12 +70,12 @@ function clearPath(obj) {
     for (let j = 0; j < cols; j++) {
       if (val === 9 && matrix[i][j] === 7) {
         matrix[i][j] = 0;
-        document.getElementById(`${i}:${j}`).style.fill = "rgb(134, 136, 138)";
+        document.getElementById(`${i}:${j}`).style.fill = "";
         continue;
       }
       if (matrix[i][j] === val) {
         matrix[i][j] = 0;
-        document.getElementById(`${i}:${j}`).style.fill = "rgb(134, 136, 138)";
+        document.getElementById(`${i}:${j}`).style.fill = "";
       }
     }
   }
