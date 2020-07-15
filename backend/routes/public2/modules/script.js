@@ -45,7 +45,22 @@ function split(str, idx) {
   return str.split(":")[idx];
 }
 
+var isColor = false;
+function activate(e) {
+  console.log("Activate");
+  isColor = true;
+  reply_click(e);
+}
+
+function deactivate() {
+  console.log("Deactivate");
+  isColor = false;
+}
+
 function reply_click(obj) {
+  if (!isColor) {
+    return;
+  }
   let elem = document.getElementById(obj.id);
 
   let x = split(obj.id, 0);
@@ -119,6 +134,15 @@ function clearPath(obj) {
         document.getElementById(`${i}:${j}`).style.fill = "";
         continue;
       }
+
+      if (val === 9 && matrix[i][j] === 9) {
+        matrix[i][j] = 0;
+        document.getElementById(`${i}:${j}`).style.fill = "";
+        document.getElementById(`${i}-${j}-${0}`).style.stroke = "";
+        document.getElementById(`${i}-${j}-${1}`).style.stroke = "";
+        document.getElementById(`${i}-${j}-${2}`).style.stroke = "";
+        document.getElementById(`${i}-${j}-${3}`).style.stroke = "";
+      }
       if (matrix[i][j] === val) {
         matrix[i][j] = 0;
         document.getElementById(`${i}:${j}`).style.fill = "";
@@ -138,6 +162,8 @@ function closeNav() {
 }
 export {
   split,
+  activate,
+  deactivate,
   reply_click,
   clearPath,
   openNav,
@@ -145,4 +171,5 @@ export {
   isDiagonal,
   src_crd,
   dst_crd,
+  dirs,
 };
