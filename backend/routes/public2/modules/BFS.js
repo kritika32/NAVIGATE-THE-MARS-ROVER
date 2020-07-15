@@ -2,8 +2,33 @@ import matrix from "./createMatrix.js";
 import { dst_crd, src_crd, fdirs } from "./script.js";
 /* Start the algorithm */
 
+function tellNext(curr, next) {
+  if (next.length === 0) {
+    return 0;
+  }
+  let cx = parseInt(split(curr, 0));
+  let cy = parseInt(split(curr, 1));
+  let nx = parseInt(split(next, 0));
+  let ny = parseInt(split(next, 1));
+
+  if ((cx + 1 === nx && cy === ny) || (cx - 1 === nx && cy === ny)) {
+    return 0;
+  }
+  if ((cx === nx && cy - 1 === ny) || (cx === nx && cy + 1 === ny)) {
+    return 1;
+  }
+
+  if ((cx + 1 === nx && cy + 1 === ny) || (cx - 1 === nx && cy === ny)) {
+    return 2;
+  }
+
+  return 3;
+
+  // if()
+}
 var printPath = function decodeFromRes(res) {
   let arr = res.split(",");
+  console.log(arr);
   for (let i = 1; i < arr.length - 1; i++) {
     let temp = arr[i].split(":");
     let nx = parseInt(temp[0]);
@@ -39,7 +64,7 @@ function search(matrix) {
       let newX = x + parseInt(dirs[i][0]); // -1
       let newY = y + parseInt(dirs[i][1]); // 0
 
-      if (newX <= 0 || newX > rows - 3 || newY <= 0 || newY > cols - 3) {
+      if (newX <= 0 || newX > rows - 2 || newY <= 0 || newY > cols - 2) {
         continue;
       }
       if (matrix[newX][newY] != 1 && matrix[newX][newY] != 2) {
@@ -50,8 +75,9 @@ function search(matrix) {
           "rgb(149, 202, 255)";
         matrix[newX][newY] = 7;
       } else if (matrix[newX][newY] === 2) {
-        console.log(path);
-        printPath(path);
+        console.log(`Here it is: ${newX}:${newY}`);
+        console.log(path + `${newX}:${newY}`);
+        printPath(path + `${newX}:${newY}`);
         return;
       } else {
         continue;

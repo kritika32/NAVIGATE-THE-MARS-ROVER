@@ -1,5 +1,7 @@
 import {
   split,
+  activate,
+  deactivate,
   reply_click,
   clearPath,
   openNav,
@@ -13,7 +15,9 @@ import {
 import { bfs, matrix } from "./modules/BFS.js";
 
 window.split = split;
+window.activate = activate;
 window.reply_click = reply_click;
+window.deactivate = deactivate;
 window.clearPath = clearPath;
 window.openNav = openNav;
 window.closeNav = closeNav;

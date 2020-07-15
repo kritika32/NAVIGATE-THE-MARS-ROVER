@@ -21,10 +21,10 @@ stretch {
 
 /*Button*/
 .btn {
-  transition: 0.1s;
+  transition: 0s;
 }
 .btn:hover {
-  transition: 0.3s;
+  transition: 0s;
 }
 
 /*Side Panel*/
