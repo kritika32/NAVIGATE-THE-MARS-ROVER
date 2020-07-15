@@ -37,7 +37,7 @@ function plot(rows = 30, cols = 50) {
       }
       c += `<rect id=${
         i + ":" + j
-      } x="${x}" y="${y}"  onmousedown="activate(this)"  onmouseover="reply_click(this)" onmouseup="deactivate()" class="btn" width="30" height="30" r="0" rx="0" ry="0" fill="${colr}" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0.2;" stroke-opacity="0.2"></rect>`;
+      } x="${x}" y="${y}"  onmousedown="activate(this)"  onmouseover="reply_click(this)" onmouseup="deactivate(this)" class="btn" width="30" height="30" r="0" rx="0" ry="0" fill="${colr}" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0.2;" stroke-opacity="0.2"></rect>`;
 
       for (let k = 0; k < lines.length; k++) {
         let x1 = x + lines[k][0][0];

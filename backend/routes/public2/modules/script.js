@@ -47,13 +47,12 @@ function split(str, idx) {
 
 var isColor = false;
 function activate(e) {
-  console.log("Activate");
+  // console.log("Activate");
   isColor = true;
   reply_click(e);
 }
 
-function deactivate() {
-  console.log("Deactivate");
+function deactivate(obj) {
   isColor = false;
 }
 
@@ -62,7 +61,6 @@ function reply_click(obj) {
     return;
   }
   let elem = document.getElementById(obj.id);
-
   let x = split(obj.id, 0);
   let y = split(obj.id, 1);
 
