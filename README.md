@@ -110,3 +110,22 @@ __BFS Implementation working with No-diagonal finding__
   <img src= "https://user-images.githubusercontent.com/59146229/87424520-b4426480-c5f9-11ea-9c79-6f84cce158bf.png">
 </p>
 
+## Panel
+
+__Single Directional BFS with No Diagonal Moves__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87558047-3ef89180-c6d6-11ea-8dab-7d7c2c17759f.png">
+</p>
+
+__Bi Directional BFS with No-Diagonal Moves__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87558189-72d3b700-c6d6-11ea-9283-9e4f6dd922d7.png">
+</p>
+
+__Single Directional BFS with Diagonal Moves__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87558339-a0b8fb80-c6d6-11ea-8480-a3e0a4ebd61a.png">
+</p>
+
+
+
