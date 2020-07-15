@@ -1,26 +1,5 @@
-var myModule = require("./main");
-myModule.matrix, myModule.N, myModule.src, myModule.dst;
-var matrix = myModule.matrix,
-  rows = myModule.N,
-  cols = myModule.N,
-  src_crd = `${myModule.src[0]}:${myModule.src[1]}`,
-  dst_crd = `${myModule.dst[0]}:${myModule.dst[1]}`;
-
-const dirs = [
-  [-1, 0],
-  [0, 1],
-  [-1, 1],
-  [1, 0],
-  [0, -1],
-  [1, 1],
-  [1, -1],
-  [-1, -1],
-];
-
-// code to change color while clicking of code
-function split(str, idx) {
-  return str.split(":")[idx];
-}
+import { matrix, dst_crd, src_crd, dirs } from "./script.js";
+/* Start the algorithm */
 
 function fillArray(parent, p, end) {
   let arr = [];
@@ -42,63 +21,37 @@ function printPath(p1, p2, k, src, dst) {
     let nx = parseInt(temp[0]);
     let ny = parseInt(temp[1]);
     matrix[nx][ny] = 9;
+    document.getElementById(`${nx}:${ny}`).style.fill = "rgb(0, 68, 137)";
   }
-}
-
-function BS(matrix, queue, visited) {
-  while (queue.length != 0) {
-    let rp = queue.shift();
-    let x = parseInt(rp[0]);
-    let y = parseInt(rp[1]);
-    let path = rp[2];
-
-    // if (x < 0 || x >= rows - 3 || y < 0 || y >= cols - 3) continue;
-    if (visited.has(`${x}:${y}`)) continue;
-
-    visited.add(`${x}:${y}`);
-
-    // [[-1, 0], [1, 2]]
-    for (let i = 0; i < dirs.length; i++) {
-      let newX = x + parseInt(dirs[i][0]); // -1
-      let newY = y + parseInt(dirs[i][1]); // 0
-
-      if (newX <= 0 || newX > rows - 2 || newY <= 0 || newY > cols - 2) {
-        continue;
-      }
-      if (matrix[newX][newY] != 1 && matrix[newX][newY] != 2) {
-        if (matrix[newX][newY] === 3) {
-          continue;
-        }
-
-        matrix[newX][newY] = 7;
-      } else if (matrix[newX][newY] === 2) {
-        console.log(`Here it is: ${newX}:${newY}`);
-        console.log(path + `${newX}:${newY}`);
-        printPath(path + `${newX}:${newY}`);
-        return;
-      } else {
-        continue;
-      }
-      queue.push([newX, newY, path + `${newX}:${newY},`]);
-    }
-  }
-
-  console.log("No Path Exists");
 }
 
 function bfs(matrix, queue, visited, parent) {
   let rv = queue.shift();
   let x = parseInt(rv[0]),
     y = parseInt(rv[1]);
-  path = rv[2];
 
   for (let i = 0; i < dirs.length; i++) {
     let newX = x + dirs[i][0],
       newY = y + dirs[i][1];
 
+    if (
+      newX <= 0 ||
+      newY <= 0 ||
+      newX > rows - 2 ||
+      newY > cols - 2 ||
+      matrix[newX][newY] === 1 ||
+      matrix[newX][newY] === 2
+    ) {
+      continue;
+    }
+
     if (!visited.has(`${newX}:${newY}`) && matrix[newX][newY] !== 3) {
       parent[`${newX}:${newY}`] = `${x}:${y}`;
       visited.add(`${newX}:${newY}`);
+      document.getElementById(`${newX}:${newY}`).style.fill =
+        "rgb(149, 202, 255)";
+      // document.getElementById(`${newX}:${newY}`).style.transition = "1s";
+      matrix[newX][newY] = 7;
 
       queue.push([newX, newY]);
     }
@@ -141,8 +94,6 @@ function Bisearch(matrix) {
 
     let intr = intersection(v1, v2);
     if (intr !== -1) {
-      console.log("intr", intr);
-      console.log("Path exists");
       printPath(p1, p2, intr, `${src_x}:${src_y}`, `${dst_x}:${dst_y}`);
       return;
     }
@@ -151,6 +102,8 @@ function Bisearch(matrix) {
   console.log("No path exists");
 }
 
-// Evaluation Time
-Bisearch(myModule.matrix);
-myModule.printMatrix(matrix);
+function bibfs() {
+  Bisearch(matrix);
+}
+
+export { bibfs };

@@ -1,3 +1,7 @@
+import matrix from "./createMatrix.js";
+// import { bfs } from "./BFS";
+// import { bibfs } from "./BIBFS";
+
 //Initialize variables
 var cnt = 0,
   isSrc = true,
@@ -37,7 +41,12 @@ const dia = [
 function isDiagonal() {
   fdirs = dirs;
   toggleDirs = !toggleDirs;
-  if (toggleDirs) fdirs = fdirs.concat(dia);
+  if (toggleDirs) {
+    fdirs = fdirs.concat(dia);
+    document.getElementById("diagonalMoves").innerHTML = "Diagonal Allowed";
+  } else {
+    document.getElementById("diagonalMoves").innerHTML = "Diagonal NA";
+  }
 }
 
 // code to change color while clicking of code
@@ -158,6 +167,25 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
 }
+
+var isBirectional = false;
+
+function biDirection() {
+  isBirectional = !isBirectional;
+  if (isBirectional) {
+    document.getElementById("directions").innerHTML = "Bi-Directional";
+  } else {
+    document.getElementById("directions").innerHTML = "Single-Directional";
+  }
+}
+
+function Direct() {
+  if (isBirectional) {
+    bibfs(matrix);
+  } else {
+    bfs(matrix);
+  }
+}
 export {
   split,
   activate,
@@ -167,7 +195,10 @@ export {
   openNav,
   closeNav,
   isDiagonal,
+  Direct,
+  biDirection,
   src_crd,
   dst_crd,
   dirs,
+  matrix,
 };

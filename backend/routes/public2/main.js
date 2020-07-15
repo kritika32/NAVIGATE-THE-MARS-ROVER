@@ -7,12 +7,16 @@ import {
   openNav,
   closeNav,
   isDiagonal,
+  Direct,
+  biDirection,
   src_crd,
   dst_crd,
   fdirs,
+  matrix,
 } from "./modules/script.js";
 
-import { bfs, matrix } from "./modules/BFS.js";
+import { bfs } from "./modules/BFS.js";
+import { bibfs } from "./modules/BIBFS.js";
 
 window.split = split;
 window.activate = activate;
@@ -27,3 +31,6 @@ window.dst_crd = dst_crd;
 window.matrix = matrix;
 window.dirs = fdirs;
 window.bfs = bfs;
+window.bibfs = bibfs;
+window.Direct = Direct;
+window.biDirection = biDirection;
