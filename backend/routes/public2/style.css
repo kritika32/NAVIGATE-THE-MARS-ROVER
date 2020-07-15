@@ -21,10 +21,8 @@ stretch {
 
 /*Button*/
 .btn {
-  transition: 0s;
-}
-.btn:hover {
-  transition: 0s;
+  /* transform: rotate(20deg); */
+  opacity: 5;
 }
 
 /*Side Panel*/

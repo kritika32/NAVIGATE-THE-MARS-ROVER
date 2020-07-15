@@ -1,34 +1,9 @@
 import matrix from "./createMatrix.js";
-import { dst_crd, src_crd, fdirs } from "./script.js";
+import { clearPath, dst_crd, src_crd, fdirs } from "./script.js";
 /* Start the algorithm */
-
-function tellNext(curr, next) {
-  if (next.length === 0) {
-    return 0;
-  }
-  let cx = parseInt(split(curr, 0));
-  let cy = parseInt(split(curr, 1));
-  let nx = parseInt(split(next, 0));
-  let ny = parseInt(split(next, 1));
-
-  if ((cx + 1 === nx && cy === ny) || (cx - 1 === nx && cy === ny)) {
-    return 0;
-  }
-  if ((cx === nx && cy - 1 === ny) || (cx === nx && cy + 1 === ny)) {
-    return 1;
-  }
-
-  if ((cx + 1 === nx && cy + 1 === ny) || (cx - 1 === nx && cy === ny)) {
-    return 2;
-  }
-
-  return 3;
-
-  // if()
-}
 var printPath = function decodeFromRes(res) {
   let arr = res.split(",");
-  console.log(arr);
+  // console.log(arr);
   for (let i = 1; i < arr.length - 1; i++) {
     let temp = arr[i].split(":");
     let nx = parseInt(temp[0]);
@@ -40,6 +15,8 @@ var printPath = function decodeFromRes(res) {
 };
 
 function search(matrix) {
+  clearPath("wall");
+  clearPath("path");
   var dirs = fdirs;
   let queue = [];
   let src_x = split(src_crd, 0),
@@ -75,8 +52,8 @@ function search(matrix) {
           "rgb(149, 202, 255)";
         matrix[newX][newY] = 7;
       } else if (matrix[newX][newY] === 2) {
-        console.log(`Here it is: ${newX}:${newY}`);
-        console.log(path + `${newX}:${newY}`);
+        // console.log(`Here it is: ${newX}:${newY}`);
+        // console.log(path + `${newX}:${newY}`);
         printPath(path + `${newX}:${newY}`);
         return;
       } else {
