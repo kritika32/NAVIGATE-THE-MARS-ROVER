@@ -64,4 +64,4 @@ console.log("------------------");
 // console.log(matrix[11][6]); //checking source location
 // console.log(matrix[11][14]); //checking destination location
 
-module.exports = { matrix, N, src, printMatrix };
+module.exports = { matrix, N, src, dst, printMatrix };

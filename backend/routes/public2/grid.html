@@ -10,6 +10,10 @@
       crossorigin="anonymous"
     />
     <title>Grid</title>
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="main.js"></script>
   </head>
@@ -28,14 +32,17 @@
             >
             <a
               class="list-group-item bg-secondary mb-4"
+              id="directions"
               href="javascript:void(0)"
-              >Bidirectional</a
+              onclick="biDirection()"
+              >Single Directional</a
             >
             <a
               class="list-group-item bg-secondary mb-4"
               href="javascript:void(0)"
+              id="diagonalMoves"
               onclick="isDiagonal()"
-              >Diagonal Moves</a
+              >Diagonal NA</a
             >
             <a
               class="list-group-item bg-secondary mb-4"
@@ -53,7 +60,7 @@
             >
             <a
               class="list-group-item bg-secondary mb-4"
-              onclick="bfs()"
+              onclick="Direct()"
               href="javascript:void(0)"
               >Start</a
             >

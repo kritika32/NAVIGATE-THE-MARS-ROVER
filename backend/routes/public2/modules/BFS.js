@@ -1,4 +1,3 @@
-import matrix from "./createMatrix.js";
 import { clearPath, dst_crd, src_crd, fdirs } from "./script.js";
 /* Start the algorithm */
 var printPath = function decodeFromRes(res) {
@@ -9,7 +8,6 @@ var printPath = function decodeFromRes(res) {
     let nx = parseInt(temp[0]);
     let ny = parseInt(temp[1]);
     matrix[nx][ny] = 9;
-    console.log(document.getElementById(`${nx}:${ny}`).style.fill);
     document.getElementById(`${nx}:${ny}`).style.fill = "rgb(0, 68, 137)";
   }
 };
@@ -50,10 +48,13 @@ function search(matrix) {
         }
         document.getElementById(`${newX}:${newY}`).style.fill =
           "rgb(149, 202, 255)";
+        // document.getElementById(`${newX}:${newY}`).style.transition = "1s";
         matrix[newX][newY] = 7;
+        // document.getElementById(`${newX}:${newY}`).style.transition = "0s";
       } else if (matrix[newX][newY] === 2) {
         // console.log(`Here it is: ${newX}:${newY}`);
         // console.log(path + `${newX}:${newY}`);
+
         printPath(path + `${newX}:${newY}`);
         return;
       } else {
@@ -70,4 +71,4 @@ function bfs() {
   search(matrix);
 }
 
-export { bfs, matrix };
+export { bfs };
