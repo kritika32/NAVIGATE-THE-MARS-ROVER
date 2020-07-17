@@ -19,6 +19,12 @@ app.get("/", (req, res) => {
 // Routing to grid/
 app.use("/grid", require("./routes/grid"));
 
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
 var PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT}`);

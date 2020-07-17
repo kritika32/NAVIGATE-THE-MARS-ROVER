@@ -1,10 +1,30 @@
 body {
   margin: 0 auto;
-  background-image: url("./images/nav.jpeg");
-  background-position: center center;
+  background-image: url("./images/space2.jpg");
+  background-position: top top;
   background-image: no-repeat;
 }
 
+#intro {
+  font-size: xx-large;
+  border-style: solid;
+  padding: 2em;
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 480px) {
+  svg {
+    width: 480px;
+    height: 800px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  svg {
+    width: 1920px;
+    height: 1080px;
+  }
+}
 /* Logo */
 img {
   -webkit-transition: background-image 0.2s ease-in-out;
@@ -34,7 +54,9 @@ stretch {
   z-index: 1; /* Stay on top */
   top: 0;
   left: 0;
-  background-color: rgb(54, 69, 79); /* Black*/
+  /* background-color: rgb(3, 0, 46); Black */
+  background-image: url("./images/space.jpg");
+  background-position: center center;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
@@ -51,9 +73,9 @@ stretch {
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidepanel a:hover {
+/* .sidepanel a:hover {
   color: #036;
-}
+} */
 
 /* Position and style the close button (top right corner) */
 .sidepanel .closebtn {
@@ -68,7 +90,8 @@ stretch {
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: rgb(54, 69, 79);
+  border-radius: 90%;
+  background-color: rgb(51, 51, 102);
   color: white;
   padding: 10px 20px;
   margin-left: 27px;
@@ -78,4 +101,27 @@ stretch {
 .openbtn:hover {
   background-color: #036;
   transition-delay: 0.1s;
+}
+
+/* Space Ship */
+.space {
+  /* Pass a comma separated list of backgrounds: */
+  background: url("http://demo.tutorialzine.com/2013/10/css3-features-you-can-finally-use/assets/img/rocket_big.png")
+      no-repeat center 90px,
+    url("http://demo.tutorialzine.com/2013/10/css3-features-you-can-finally-use/assets/img/space.jpg")
+      no-repeat bottom center;
+
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+
+  border-radius: 50%;
+
+  /* Animate the positions of both of the backgrounds */
+  transition: background-position 2s;
+}
+
+.space:hover {
+  /* The same goes for properties like background-position and repeat */
+  background-position: 50% 20px, top right;
 }

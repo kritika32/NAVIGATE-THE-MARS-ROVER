@@ -10,6 +10,8 @@ import {
   Direct,
   biDirection,
   matrix,
+  patternChange,
+  redoPattern,
 } from "./modules/script.js";
 
 import { bfs } from "./modules/Algos/BFS.js";
@@ -28,3 +30,5 @@ window.bibfs = bibfs;
 window.Direct = Direct;
 window.biDirection = biDirection;
 window.matrix = matrix;
+window.patternChange = patternChange;
+window.redoPattern = redoPattern;

@@ -1,5 +1,16 @@
 var rows = 30,
   cols = 48;
+
+console.log($(window).width());
+console.log($("form").serialize());
+var svg = document.getElementById("container");
+svg.style.width = $(window).width();
+const w = $(window).width;
+document.getElementById("reset").style.width = `${w}px`;
+document.getElementById("start").style.width = $(window).width();
+if ($(window).width() >= 1500) {
+  cols = 64;
+}
 var lines = [
   [
     // |
@@ -29,10 +40,10 @@ function plot(rows = 30, cols = 50) {
   for (let i = 0; i < rows; i++) {
     var x = 0;
     for (let j = 0; j < cols; j++) {
-      let colr = "rgb(134, 136, 138)";
+      let colr = "rgb(163, 173, 184)";
       let line_c = "";
       if (j == 0 || i == 0 || j == cols - 1 || i == rows - 1) {
-        colr = "rgb(54, 69, 79)";
+        colr = "rgb(51, 51, 102)";
         line_c = "";
       }
       c += `<rect id=${
@@ -55,4 +66,7 @@ function plot(rows = 30, cols = 50) {
 }
 
 //Driver
-plot(30, 48);
+plot(rows, cols);
+
+window.rows = rows;
+window.cols = cols;
