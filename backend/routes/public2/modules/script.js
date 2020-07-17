@@ -1,17 +1,15 @@
-import matrix from "./createMatrix.js";
-// import { bfs } from "./BFS";
-// import { bibfs } from "./BIBFS";
-
+import { matrix } from "./createMatrix.js";
 //Initialize variables
 var cnt = 0,
   isSrc = true,
   isDst = false,
-  src_crd = "",
-  dst_crd = "",
   rows = 30,
   cols = 48;
 
-export var fdirs = [
+window.src_crd = "";
+window.dst_crd = "";
+
+window.dirs = [
   [-1, 0],
   [1, 0],
   [0, 1],
@@ -19,7 +17,7 @@ export var fdirs = [
 ];
 
 var toggleDirs = false;
-var dirs = [
+var fdirs = [
   [-1, 0],
   [1, 0],
   [0, 1],
@@ -39,10 +37,10 @@ const dia = [
 
 //To initiate the diagonal moves
 function isDiagonal() {
-  fdirs = dirs;
+  dirs = fdirs;
   toggleDirs = !toggleDirs;
   if (toggleDirs) {
-    fdirs = fdirs.concat(dia);
+    dirs = dirs.concat(dia);
     document.getElementById("diagonalMoves").innerHTML = "Diagonal Allowed";
   } else {
     document.getElementById("diagonalMoves").innerHTML = "Diagonal NA";
@@ -197,8 +195,5 @@ export {
   isDiagonal,
   Direct,
   biDirection,
-  src_crd,
-  dst_crd,
-  dirs,
   matrix,
 };

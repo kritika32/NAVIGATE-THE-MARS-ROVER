@@ -1,4 +1,3 @@
-import { matrix, dst_crd, src_crd, dirs } from "./script.js";
 /* Start the algorithm */
 
 function fillArray(parent, p, end) {
@@ -69,6 +68,7 @@ function intersection(v1, v2) {
 }
 
 function Bisearch(matrix) {
+  console.log(dirs);
   let q1 = [],
     q2 = [],
     v1 = new Set(),
