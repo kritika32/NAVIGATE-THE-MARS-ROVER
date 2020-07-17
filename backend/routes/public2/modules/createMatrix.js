@@ -19,4 +19,4 @@ function createMatrix() {
   return matrix;
 }
 var matrix = createMatrix();
-export default matrix;
+export { matrix };

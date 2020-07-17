@@ -1,4 +1,3 @@
-import { clearPath, dst_crd, src_crd, fdirs } from "./script.js";
 /* Start the algorithm */
 var printPath = function decodeFromRes(res) {
   let arr = res.split(",");
@@ -13,9 +12,9 @@ var printPath = function decodeFromRes(res) {
 };
 
 function search(matrix) {
+  console.log(dirs);
   clearPath("wall");
   clearPath("path");
-  var dirs = fdirs;
   let queue = [];
   let src_x = split(src_crd, 0),
     src_y = split(src_crd, 1);
