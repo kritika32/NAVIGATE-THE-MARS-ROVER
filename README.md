@@ -127,5 +127,27 @@ __Single Directional BFS with Diagonal Moves__
   <img src= "https://user-images.githubusercontent.com/59146229/87558339-a0b8fb80-c6d6-11ea-8480-a3e0a4ebd61a.png">
 </p>
 
+# 5. Front-end Version 2.1 [THE SPACE VERSION]
+
+__Top Nav__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87802854-69318700-c86f-11ea-9683-cc23c235696d.png">
+</p>
+
+__Grid Layout__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87803126-b7df2100-c86f-11ea-9785-d88357808f83.png">
+</p>
+
+__Bottom Nav__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87803057-a39b2400-c86f-11ea-84e4-e105c9796536.png">
+</p>
+
+__Left Nav__
+<p align="center">
+  <img src= "https://user-images.githubusercontent.com/59146229/87803312-ebba4680-c86f-11ea-9cd3-9701e62999fb.png">
+</p>
+
 
 
