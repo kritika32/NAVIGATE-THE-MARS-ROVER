@@ -18,82 +18,94 @@
     <script type="module" src="main.js"></script>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container mx-0">
       <div class="row">
         <div class="col">
           <div id="mySidepanel" class="sidepanel">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-              >&times;</a
-            >
-            <a
-              class="list-group-item bg-secondary mb-4"
-              href="javascript:void(0)"
+            <div class="mx-auto mb-4 col space"></div>
+            <a class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="list-group-item bg-dark mb-4" href="javascript:void(0)"
               >Choose Algorithm</a
             >
             <a
-              class="list-group-item bg-secondary mb-4"
+              class="list-group-item bg-dark mb-4"
               id="directions"
               href="javascript:void(0)"
               onclick="biDirection()"
               >Single Directional</a
             >
             <a
-              class="list-group-item bg-secondary mb-4"
+              class="list-group-item bg-dark mb-4"
               href="javascript:void(0)"
               id="diagonalMoves"
               onclick="isDiagonal()"
               >Diagonal NA</a
             >
             <a
-              class="list-group-item bg-secondary mb-4"
+              class="list-group-item bg-dark mb-4"
               id="wall"
               onclick="clearPath(this)"
               href="javascript:void(0)"
               >Clear Walls</a
             >
             <a
-              class="list-group-item bg-secondary mb-4"
+              class="list-group-item bg-dark mb-4"
               id="path"
               onclick="clearPath(this)"
               href="javascript:void(0)"
               >Clear Path</a
             >
-            <a
+            <!-- <a
               class="list-group-item bg-secondary mb-4"
               onclick="Direct()"
               href="javascript:void(0)"
               >Start</a
-            >
+            > -->
           </div>
-          <button class="openbtn" onclick="openNav()">
+          <button class="openbtn m-2" onclick="openNav()">
             INFO &#9776;
           </button>
         </div>
-        <div class="col col-lg-8 text-center">
-          <div
-            class="row"
-            style="height: 200px; padding-top: 5.5em; padding-left: 12em;"
-          >
-            <h1 class="text-white mt-4 mx-auto">
+        <div class="col-10 col-md-8 text-center">
+          <div class="row" style="padding-left: 15em; padding-bottom: 2em;">
+            <div id="intro" class="text-white mt-md-4 mx-md-auto">
               Navigate The Mars Rover
-            </h1>
+            </div>
           </div>
           <div class="row"></div>
           <div class="row">
             <div id="greet" class="text-white mt-4"></div>
           </div>
         </div>
-        <div class="col-5 col-lg-2 logo">
-          <img class="d-none d-md-block" alt="Rover" src="./images/rover.png" />
-        </div>
       </div>
       <div class="row">
         <!-- <div class="col-4"></div> -->
-        <div id="grid" class="col mx-0 px-0">
-          <svg id="container" width="1440" height="900"></svg>
+        <div id="grid" class="col mx-0 px-0 pt-4 pt-md-0">
+          <svg
+            id="container"
+            onmousedown="patternChange(event)"
+            onmouseup="redoPattern()"
+            style="width: 1920px; height: 900;"
+          ></svg>
+          <div id="reset" class="mt-4 mb-4" style="width: 1440px;"></div>
         </div>
       </div>
     </div>
+    <button
+      type="button"
+      id="start"
+      onclick="Direct()"
+      class="mb-4 btn btn-secondary btn-danger btn-lg btn-block"
+    >
+      Start
+    </button>
+    <button
+      type="button"
+      onClick="window.location.reload();"
+      class="btn btn-primary btn-lg btn-block mx-0 mb-4"
+    >
+      Reset
+    </button>
     <script src="createBoxes.js"></script>
   </body>
 </html>

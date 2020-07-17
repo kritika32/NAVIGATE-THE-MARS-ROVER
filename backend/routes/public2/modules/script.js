@@ -2,9 +2,7 @@ import { matrix } from "./createMatrix.js";
 //Initialize variables
 var cnt = 0,
   isSrc = true,
-  isDst = false,
-  rows = 30,
-  cols = 48;
+  isDst = false;
 
 window.src_crd = "";
 window.dst_crd = "";
@@ -53,6 +51,17 @@ function split(str, idx) {
 }
 
 var isColor = false;
+var changeWalls_c = false;
+
+function patternChange(e) {
+  changeWalls_c = !changeWalls_c;
+  // reply_click(e.target);
+}
+
+function redoPattern() {
+  console.log(changeWalls_c);
+}
+
 function activate(e) {
   // console.log("Activate");
   isColor = true;
@@ -67,6 +76,7 @@ function reply_click(obj) {
   if (!isColor) {
     return;
   }
+  console.log(obj.id);
   let elem = document.getElementById(obj.id);
   let x = split(obj.id, 0);
   let y = split(obj.id, 1);
@@ -103,23 +113,30 @@ function reply_click(obj) {
     matrix[split(dst_crd, 0)][split(dst_crd, 1)] = 2;
     isDst = true;
   } else {
-    if (elem.style.fill.length === 0) {
+    if (changeWalls_c && elem.style.fill.length === 0) {
       elem.style.fill = "rgb(43, 45, 47)";
       matrix[split(obj.id, 0)][split(obj.id, 1)] = 3;
+    } else if (changeWalls_c && elem.style.fill === "rgb(43, 45, 47)") {
+      //to save again coloring
     } else {
       if (elem.style.fill === "rgb(0, 255, 0)") {
         cnt = 0;
         isSrc = false;
         src_crd = "";
+        matrix[split(obj.id, 0)][split(obj.id, 1)] = 0;
+        elem.style.fill = "";
       } else if (elem.style.fill === "rgb(255, 0, 0)") {
         cnt = 1;
         isDst = false;
         dst_crd = "";
+        matrix[split(obj.id, 0)][split(obj.id, 1)] = 0;
+        elem.style.fill = "";
       } else if (elem.style.fill === "rgb(149, 202, 255)") {
         return;
+      } else {
+        matrix[split(obj.id, 0)][split(obj.id, 1)] = 0;
+        elem.style.fill = "";
       }
-      matrix[split(obj.id, 0)][split(obj.id, 1)] = 0;
-      elem.style.fill = "";
     }
   }
 }
@@ -195,5 +212,7 @@ export {
   isDiagonal,
   Direct,
   biDirection,
+  patternChange,
+  redoPattern,
   matrix,
 };
