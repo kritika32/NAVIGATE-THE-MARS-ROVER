@@ -1,11 +1,7 @@
-import { matrix } from "./createMatrix.js";
 //Initialize variables
-var cnt = 0,
+var cnt = 3,
   isSrc = true,
-  isDst = false;
-
-window.src_crd = "";
-window.dst_crd = "";
+  isDst = true;
 
 window.dirs = [
   [-1, 0],
@@ -20,10 +16,6 @@ var fdirs = [
   [1, 0],
   [0, 1],
   [0, -1],
-  // [-1, 1],
-  // [1, 1],
-  // [1, -1],
-  // [-1, -1],
 ];
 
 const dia = [
@@ -76,7 +68,6 @@ function reply_click(obj) {
   if (!isColor) {
     return;
   }
-  console.log(obj.id);
   let elem = document.getElementById(obj.id);
   let x = split(obj.id, 0);
   let y = split(obj.id, 1);
@@ -214,5 +205,4 @@ export {
   biDirection,
   patternChange,
   redoPattern,
-  matrix,
 };

@@ -9,7 +9,6 @@ import {
   isDiagonal,
   Direct,
   biDirection,
-  matrix,
   patternChange,
   redoPattern,
 } from "./modules/script.js";
@@ -29,6 +28,5 @@ window.bfs = bfs;
 window.bibfs = bibfs;
 window.Direct = Direct;
 window.biDirection = biDirection;
-window.matrix = matrix;
 window.patternChange = patternChange;
 window.redoPattern = redoPattern;

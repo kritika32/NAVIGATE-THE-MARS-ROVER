@@ -1,16 +1,11 @@
 var rows = 30,
   cols = 48;
 
-console.log($(window).width());
-console.log($("form").serialize());
-var svg = document.getElementById("container");
-svg.style.width = $(window).width();
-const w = $(window).width;
-document.getElementById("reset").style.width = `${w}px`;
-document.getElementById("start").style.width = $(window).width();
-if ($(window).width() >= 1500) {
-  cols = 64;
+// code to change color while clicking of code
+function split(str, idx) {
+  return str.split(":")[idx];
 }
+
 var lines = [
   [
     // |
@@ -48,7 +43,7 @@ function plot(rows = 30, cols = 50) {
       }
       c += `<rect id=${
         i + ":" + j
-      } x="${x}" y="${y}"  onmousedown="activate(this)"  onmouseover="reply_click(this)" onmouseup="deactivate(this)" class="btn" width="30" height="30" r="0" rx="0" ry="0" fill="${colr}" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0.2;" stroke-opacity="0.2"></rect>`;
+        } x="${x}" y="${y}"  onmousedown="activate(this)"  onmouseover="reply_click(this)" onmouseup="deactivate(this)" class="btn" width="30" height="30" r="0" rx="0" ry="0" fill="${colr}" stroke="#000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0.2;" stroke-opacity="0.2"></rect>`;
 
       for (let k = 0; k < lines.length; k++) {
         let x1 = x + lines[k][0][0];
@@ -61,12 +56,43 @@ function plot(rows = 30, cols = 50) {
     }
     y += 30;
   }
-  if (document.getElementById("container"))
-    document.getElementById("container").innerHTML = c;
+  document.getElementById("container").innerHTML = c;
+  document.getElementById(src_crd).style.fill = "rgb(0, 255, 0)";
+  matrix[split(src_crd, 0)][split(src_crd, 1)] = 1;
+
+
+  document.getElementById(dst_crd).style.fill = "rgb(255, 0, 0)";
+  matrix[split(dst_crd, 0)][split(dst_crd, 1)] = 2;
+
+
 }
 
-//Driver
-plot(rows, cols);
+function createMatrix() {
+  function initArray(matrix, rows, cols) {
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < cols; j++) {
+        if (i == 0 || j == 0 || i == rows - 1 || j == cols - 1) {
+          matrix[i][j] = 5;
+        } else {
+          matrix[i][j] = 0;
+        }
+      }
+    }
+  }
+  var matrix = new Array(rows);
+  for (let i = 0; i < rows; i++) {
+    matrix[i] = new Array(cols);
+  }
+
+  initArray(matrix, rows, cols);
+  return matrix;
+}
+var matrix = createMatrix();
 
 window.rows = rows;
 window.cols = cols;
+window.src_crd = "10:15";
+window.dst_crd = "10:30";
+window.matrix = matrix;
+//Driver
+plot(rows, cols);
