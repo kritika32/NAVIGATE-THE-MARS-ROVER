@@ -1,5 +1,5 @@
 # NAVIGATE-THE-MARS-ROVER
-An interesting game using Artificial Intelligence
+An interesting game using Artificial Intelligence [https://navigate-mars-rover.herokuapp.com/]
 
 -----------------------------------------------------------------------------------------------------------------------------
  
